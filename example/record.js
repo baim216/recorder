@@ -37,15 +37,15 @@
 			//录音初始化--调用麦克风
 			switch (this.getBrowserType()) {
 				case "Firefox":
-					this.getUserMedia = navigator.getUserMedia;
+					/*this.getUserMedia = navigator.getUserMedia || navigator.mediaDevices.getUserMedia;
 					this.getUserMedia({audio: true}, function (stream) {
 						t.successInitGetUserMedia(stream, this);
 					}, function (error) {
 						t.errorInitGetUserMedia(error);
 					});
-					break;
+					break;*/
 				case "Chrome":
-					this.getUserMedia = navigator.mediaDevices.getUserMedia;
+					this.getUserMedia = navigator.getUserMedia || navigator.mediaDevices.getUserMedia;
 					this.getUserMedia({audio: true}).then(function (stream) {
 						t.successInitGetUserMedia(stream, this);
 					}).catch(function (error) {
