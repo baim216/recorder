@@ -10,7 +10,7 @@ html5获取客户端麦克风和摄像头要求安全的网络环境，所以要
 所以访问的时候 Chrome47 以上版本和 QQ 浏览器因为没有 HTTPS 支持会直接报错。
 
 # example
-[demo](https://github.com/Martin-Bai/recorder/blob/master/example/index.html)
+[demo](https://martin-bai.github.io/recorder/example/index.html)
 
 # License
 MIT
