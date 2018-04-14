@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>record for IE and chrome&&firefox</title>
+  <script src="./jquery.min.js"></script>
+  <script src="./Recorder.js"></script>
+  <script src="./RongIMLib.voice.js"></script>
+  <script src="./record.js"></script>
+  <style>
+    body{
+      width:100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<button id="record">record</button>
+<button id="getData">getData</button>
+
+<div id="data"></div>
+
+<script>
+
+	(function () {
+		var record = new Record({
+			onRecordUpload: function (res) {
+			},
+			onRecording: function (ms) {
+				console.log(ms);
+			}
+			,
+			swfSrc: "./recorder.swf"//recorder.swf引用路径
+		});
+
+		var recordBtn = $("#record");
+		var getDataBtn = $("#getData");
+		var dataDiv = $("#data");
+
+		recordBtn.on("click", function () {
+			record.startRecord();
+		});
+
+		getDataBtn.on("click", function () {
+			switch (record.getBrowserType()){
+				case "Chrome":
+				case "Firefox":
+					dataDiv.innerHTML = record.getBlob();
+					break;
+				default:
+					alert("除Chrome和Firefox外，需使用flash配置后台接口地址")
+			}
+		});
+
+	})()
+
+
+</script>
+
+
+</body>
+</html>
